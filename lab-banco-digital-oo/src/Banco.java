@@ -64,6 +64,15 @@ public class Banco {
 		return null;
 	}
 
+	public Cliente getClienteByCpf(String cpf){
+		for (Cliente cliente : clientes) {
+				if(cliente.getCpf().equals(cpf)){
+				return cliente;
+			}
+		}
+		return null;
+	}
+
 	public void addConta(Conta conta) {
 		this.contas.add(conta);
 	}

@@ -9,18 +9,22 @@ public class Main {
 		double valor = 0;
 		while (opcao!=0) {
 			Cliente novoCliente = null;
-			System.out.println("========== Digite o nome do cliente ==========");
+			System.out.println("========== Digite o CPF do cliente ==========");
 			Scanner scanner = new Scanner(System.in);
-			String nomecliente = scanner.nextLine();
+			String cpf = scanner.nextLine();
 			banco.getClientes();
-			if (banco.getClienteByNome(nomecliente) != null) {
-				novoCliente = banco.getClienteByNome(nomecliente);
+
+
+			if (banco.getClienteByCpf(cpf) != null) {
+				novoCliente = banco.getClienteByCpf(cpf);
 				conta = banco.getContaByCliente(novoCliente);
 			}
 
 			else{
+				System.out.println("========== Digite o Nome do cliente ==========");
 				novoCliente = new Cliente();
-				novoCliente.setNome(nomecliente);
+				novoCliente.setNome(scanner.nextLine());
+				novoCliente.setCpf(cpf);
 				banco.addCliente(novoCliente);
 			}
 			
